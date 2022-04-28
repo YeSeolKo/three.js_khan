@@ -1,2 +1,2 @@
-# three.js_khan
+# Three.js_React
 Created with CodeSandbox
