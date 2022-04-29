@@ -1,14 +1,30 @@
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./styles.css";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 
 export default function App() {
   function Box(props) {
     const ref = useRef();
 
+    const [hovered, sethover] = useState(false);
+
+    useEffect(() => {
+      console.log(hovered);
+    }, [hovered]);
+
+    useFrame(() => {
+      ref.current.rotation.x += 0.01;
+    });
+
     return (
-      <mesh {...props}>
-        <boxGeometry args={[3, 3, 3]} />
+      <mesh
+        onPorinterOver={(e) => sethover(true)}
+        onPointerOut={(e) => sethover(false)}
+        ref={ref}
+        {...props}
+        scale={hovered ? 1 : 1.5}
+      >
+        <boxGeometry args={[1, 1, 3]} />
         <meshStandardMaterial color={"orange"} />
       </mesh>
     );
@@ -16,12 +32,12 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1> hello </h1>
-      <Canvas style={{ width: "400px" }}>
+      <Canvas dpr={[1, 2]}>
         <ambientLight intensity={0.5} />
-        <spotLight position={[4.2, 0, 0]} />
-        <Box position={[-4.2, 0, 0]} />
-        <Box position={[4.2, 0, 0]} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+        <pointLight position={[-10, -10, -10]} />
+        <Box position={[-1.2, 0, 0]} />
+        <Box position={[1.2, 0, 0]} />
       </Canvas>
     </div>
   );
