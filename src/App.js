@@ -18,11 +18,11 @@ export default function App() {
 
     return (
       <mesh
-        onPorinterOver={(e) => sethover(true)}
+        onPointerOver={(e) => sethover(true)}
         onPointerOut={(e) => sethover(false)}
         ref={ref}
         {...props}
-        scale={hovered ? 1 : 1.5}
+        scale={hovered ? 2 : 1.5}
       >
         <boxGeometry args={[1, 1, 3]} />
         <meshStandardMaterial color={"orange"} />
