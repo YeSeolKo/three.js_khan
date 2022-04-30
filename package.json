@@ -7,6 +7,7 @@
   "dependencies": {
     "@react-three/drei": "9.5.3",
     "@react-three/fiber": "8.0.12",
+    "@types/three": "0.139.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-scripts": "4.0.0",
