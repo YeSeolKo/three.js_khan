@@ -1,3 +1,9 @@
 .App {
   font-family: sans-serif;
+  font-align: center;
+}
+
+.bg-new {
+  background: #2d4967;
+  color: #fff;
 }
