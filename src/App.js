@@ -25,14 +25,14 @@ export default function App() {
         scale={hovered ? 2 : 1.5}
       >
         <boxGeometry args={[1, 1, 3]} />
-        <meshStandardMaterial color={"orange"} />
+        <meshStandardMaterial color={hovered ? "orange" : "red"} />
       </mesh>
     );
   }
 
   return (
     <div className="App">
-      <Canvas dpr={[1, 2]}>
+      <Canvas style={{ height: "100vh" }}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
